@@ -52,7 +52,7 @@ jobs:
           sed -i 's/;/,/g' current_ips.txt
           cp current_ips.txt current_ips_bkp.txt
           echo `curl -s https://api.ipify.org`\/32 >> current_ips.txt
-          ip_list=$(paste -sd, current_ips.txt
+          ip_list=$(paste -sd, current_ips.txt)
           gcloud container clusters update test-demo --project pro-micron-457614-s7 --region us-west1 --enable-master-authorized-networks --master-authorized-networks $ip_list
           sleep 300
    
