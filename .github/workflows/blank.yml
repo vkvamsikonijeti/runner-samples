@@ -46,17 +46,6 @@ jobs:
           gcloud container clusters update test-demo --project pro-micron-457614-s7 --region us-west1 --enable-master-authorized-networks --master-authorized-networks $ip_list
           sleep 300
    
-      #- name: Add Runner IP to GKE Control Plane
-      #  run: |
-      #    gcloud container clusters update test-demo \
-      #      --project pro-micron-457614-s7 \
-      #      --region us-west1 \
-      #      --enable-master-authorized-networks --master-authorized-networks $ip_list
-        #gcloud container clusters update elastic-idea-apps-platform-dev-primary \
-        #  --project elastic-edm-dev \
-        #  --region us-west1 \
-        #  --enable-master-authorized-networks \
-        #  --master-authorized-networks "${RUNNER_IP}/32"
       - name: Install GKE Auth Plugin
         run: |
           gcloud components install gke-gcloud-auth-plugin
